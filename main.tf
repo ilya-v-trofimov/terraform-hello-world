@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "${var.region}"
+  region = "ap-southeast-2"
   version = "1.52"
 }
 
@@ -8,5 +8,9 @@ terraform {
 }
 
 resource "aws_s3_bucket" "bucket" {
-  bucket = "${var.bucket_name}"
+  bucket = "iltr-terraform-test-bucket"
+}
+
+output "bucket_name" {
+  value = "${aws_s3_bucket.bucket.id}"
 }
