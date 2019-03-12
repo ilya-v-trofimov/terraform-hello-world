@@ -6,8 +6,6 @@ To run terraform:
 4. Run commands:
 - `cd <layer_directory>`
 - `terraform init -var-file=../vars/dev.tfvars` - inits terraform configuration
-- `terraform workspace create <YOUR_OCTO_USER_ID>`
-- `terraform workspace select <YOUR_OCTO_USER_ID>`
-- `terraform plan -var-file=vars/dev.tfvars -out=tfplan.out` - creates a plan for the configuration. Outputs plan to `tfplan.out`
+- `terraform plan -var-file=../vars/dev.tfvars -out=tfplan.out` - creates a plan for the configuration. Outputs plan to `tfplan.out`
 - `terraform apply "tfplan.out"` - applies previously created plan
-- `terraform destroy -var-file=vars/dev.tfvars` - destroys managed stack
+- `terraform destroy -var-file=../vars/dev.tfvars` - destroys managed stack

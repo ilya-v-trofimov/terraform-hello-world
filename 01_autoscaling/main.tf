@@ -53,7 +53,7 @@ resource "aws_autoscaling_group" "asg" {
   desired_capacity   = "1"
   max_size           = "1"
   min_size           = "1"
-  vpc_zone_identifier = "[${var.subnet_id}]"
+  vpc_zone_identifier = ["${var.subnet_id}"]
   launch_configuration = "${aws_launch_configuration.launch_config.id}"
 
   tags = ["${data.null_data_source.asg_tags.*.outputs}"]

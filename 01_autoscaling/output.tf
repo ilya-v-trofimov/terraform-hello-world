@@ -1,3 +1,7 @@
-output "bucket_name" {
-  value = "${aws_s3_bucket.bucket.id}"
+output "launch_config_id" {
+  value = "${aws_launch_configuration.launch_config.id}"
+}
+
+output "asg_id" {
+  value = "${aws_autoscaling_group.asg.id}"
 }

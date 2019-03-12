@@ -1,7 +1,5 @@
 variable "region" {}
 
-variable "bucket_name" {}
-
 variable "terraform_state_bucket" {}
 
 variable "vpc_id" {}
