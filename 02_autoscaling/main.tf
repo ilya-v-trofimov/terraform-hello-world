@@ -6,15 +6,15 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket = "terraform-bbl-state"
-    key = "iltr/security/bbl.tfstate"
+    key = "iltr/autoscaling/bbl.tfstate"
     region = "ap-southeast-2"
   }
 }
 
 
 locals {
-  launch_config_name = "terraform_bbl_lc_${var.octo_user_id}"
-  asg_name = "terraform_bbl_asg_${var.octo_user_id}"
+  launch_config_name = "terraform-bbl-lc-${var.octo_user_id}"
+  asg_name = "terraform-bbl-asg-${var.octo_user_id}"
 }
 
 
@@ -25,6 +25,18 @@ data "terraform_remote_state" "security" {
   config {
     bucket = "${var.terraform_state_bucket}"
     key = "${var.octo_user_id}/security/bbl.tfstate"
+    region = "${var.region}"
+  }
+}
+
+
+data "terraform_remote_state" "alb" {
+  backend = "s3"
+  workspace = "${terraform.workspace}"
+
+  config {
+    bucket = "${var.terraform_state_bucket}"
+    key = "${var.octo_user_id}/alb/bbl.tfstate"
     region = "${var.region}"
   }
 }
@@ -53,9 +65,9 @@ resource "aws_autoscaling_group" "asg" {
   desired_capacity   = "1"
   max_size           = "1"
   min_size           = "1"
-  vpc_zone_identifier = ["${var.subnet_id}"]
+  vpc_zone_identifier = "${var.subnet_ids}"
   launch_configuration = "${aws_launch_configuration.launch_config.id}"
-
+  target_group_arns = ["${data.terraform_remote_state.alb.alb_tg}"]
   tags = ["${data.null_data_source.asg_tags.*.outputs}"]
 }
 

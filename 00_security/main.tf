@@ -12,7 +12,7 @@ terraform {
 }
 
 locals {
-  security_group_name = "terraform_bbl_sg_${var.octo_user_id}"
+  security_group_name = "terraform-bbl-sg-${var.octo_user_id}"
 }
 
 resource "aws_security_group" "this_security_group" {
