@@ -8,7 +8,7 @@ variable "subnet_ids" {
   type = "list"
 }
 
-variable "octo_user_id" {}
+variable "user_id" {}
 
 variable "tags" {
   type = "map"

@@ -1,25 +1,29 @@
-region = "ap-southeast-2"
+region = "us-west-2"
 
-availability_zones = ["ap-southeast-2a","ap-southeast-2b"]
+availability_zones = [
+  "us-west-2a",
+  "us-west-2b"]
 
-terraform_state_bucket = "terraform-bbl-state"
+terraform_state_bucket = "terraform-lab-state"
 
-vpc_id = "vpc-024ec4372f90faa1f"
+vpc_id = "ami-0721c9af7b9b75114"
 
-subnet_ids = ["subnet-0e74055428490c17b", "subnet-0143f2ea38f67be74"]
+subnet_ids = [
+  "subnet-0a4c2ad0f5420bf4c",
+  "subnet-019dae4e25b36f8a2"]
 
-octo_user_id = "iltr"
+user_id = "ilya"
 
-ami_id = "ami-0b27aae3ff2e5c923" //Amazon Linux 2 AMI
+ami_id = "ami-0ab4d1e9cf9a1215a" //Amazon Linux 2 AMI
 
 instance_type = "t2.micro"
 
-iam_role = "terraform-bbl-role"
+iam_role = "terraform-lab-role"
 
-key_pair_name = "foundation-labs-ec2-iltr" //put your KeyPair name here
+key_pair_name = "foundation-labs-ec2-ilya" //put your KeyPair name here
 
 tags = {
-  event_name = "terraform-bbl",
-  date = "13/03/2019"
+  event_name = "terraform-lab",
+  date = "29/06/2021"
   description = "Terraform-is-amazing"
 }
