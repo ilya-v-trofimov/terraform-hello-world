@@ -39,3 +39,8 @@ resource "aws_iam_role_policy_attachment" "terraform-lab-role-ec2access-attachme
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
   role = aws_iam_role.terraform-lab-role.name
 }
+
+resource "aws_iam_instance_profile" "terraform-lab-instance-profile" {
+  name = "terraform-lab-instance-profile"
+  role = aws_iam_role.terraform-lab-role.name
+}
