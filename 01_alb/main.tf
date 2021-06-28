@@ -24,7 +24,7 @@ locals {
 
 resource "aws_alb" "alb" {
   name = local.alb_name
-  internal = true
+  internal = false
   load_balancer_type = "application"
   subnets = var.subnet_ids
   tags = var.tags

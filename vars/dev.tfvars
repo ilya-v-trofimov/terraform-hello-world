@@ -20,7 +20,7 @@ instance_type = "t2.micro"
 
 instance_profile = "terraform-lab-instance-profile"
 
-key_pair_name = "foundation-labs-ec2-ilya" //put your KeyPair name here
+key_pair_name = "terraform-lab-ilya" //put your KeyPair name here
 
 tags = {
   event_name = "terraform-lab",
