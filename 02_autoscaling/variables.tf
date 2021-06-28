@@ -14,7 +14,7 @@ variable "ami_id" {}
 
 variable "instance_type" {}
 
-variable "iam_role" {}
+variable "instance_profile" {}
 
 variable "key_pair_name" {}
 

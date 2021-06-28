@@ -18,7 +18,7 @@ ami_id = "ami-0721c9af7b9b75114" //Amazon Linux 2 AMI
 
 instance_type = "t2.micro"
 
-iam_role = "terraform-lab-role"
+instance_profile = "terraform-lab-instance-profile"
 
 key_pair_name = "foundation-labs-ec2-ilya" //put your KeyPair name here
 

@@ -47,7 +47,7 @@ resource "aws_launch_configuration" "launch_config" {
   name = local.launch_config_name
   image_id = var.ami_id
   instance_type = var.instance_type
-  iam_instance_profile = var.iam_role
+  iam_instance_profile = var.instance_profile
   key_name = var.key_pair_name
   security_groups = [
     data.terraform_remote_state.security.outputs.security_group_id
