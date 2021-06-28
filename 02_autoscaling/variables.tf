@@ -5,7 +5,7 @@ variable "terraform_state_bucket" {}
 variable "vpc_id" {}
 
 variable "subnet_ids" {
-  type = "list"
+  type = list(string)
 }
 
 variable "user_id" {}
@@ -19,9 +19,9 @@ variable "iam_role" {}
 variable "key_pair_name" {}
 
 variable "availability_zones" {
-  type = "list"
+  type = list(string)
 }
 
 variable "tags" {
-  type = "map"
+  type = map(any)
 }

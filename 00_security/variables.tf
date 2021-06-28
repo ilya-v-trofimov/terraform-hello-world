@@ -7,5 +7,5 @@ variable "vpc_id" {}
 variable "user_id" {}
 
 variable "tags" {
-  type = "map"
+  type = map(any)
 }

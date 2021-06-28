@@ -4,9 +4,9 @@ availability_zones = [
   "us-west-2a",
   "us-west-2b"]
 
-terraform_state_bucket = "terraform-lab-state"
+terraform_state_bucket = "terraform-resmed-lab-state"
 
-vpc_id = "ami-0721c9af7b9b75114"
+vpc_id = "vpc-034aab6425ea6e2a7"
 
 subnet_ids = [
   "subnet-0a4c2ad0f5420bf4c",
@@ -14,7 +14,7 @@ subnet_ids = [
 
 user_id = "ilya"
 
-ami_id = "ami-0ab4d1e9cf9a1215a" //Amazon Linux 2 AMI
+ami_id = "ami-0721c9af7b9b75114" //Amazon Linux 2 AMI
 
 instance_type = "t2.micro"
 
