@@ -1,14 +1,19 @@
-provider "aws" {
-  region = var.region
-  version = "3.47.0"
-}
-
 terraform {
   backend "s3" {
-    bucket = "terraform-lab-state"
+    bucket = "terraform-resmed-lab-state"
     key = "ilya/alb/lab.tfstate"
     region = "us-west-2"
   }
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "~> 3.47.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
 }
 
 locals {
