@@ -1,3 +1,3 @@
-region = "ap-southeast-2"
+region = "us-west-2"
 
-bucket_name = "iltr-terraform-test-bucket"
+bucket_name = "ilya-terraform-test-bucket"
