@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     bucket = "terraform-resmed-lab-state"
-    key = "ilya/alb/lab.tfstate"
+    key = "<user_id>/alb/lab.tfstate" //TODO
     region = "us-west-2"
   }
   required_providers {
@@ -13,7 +13,7 @@ terraform {
 }
 
 provider "aws" {
-  region = var.region
+  region = "<TODO>"//TODO: populate missing values (use variables)
 }
 
 locals {
@@ -23,34 +23,31 @@ locals {
 }
 
 resource "aws_alb" "alb" {
-  name = local.alb_name
+  name = "<TODO>"//TODO: use local alb name
   internal = false
   load_balancer_type = "application"
-  subnets = var.subnet_ids
-  tags = var.tags
+  subnets = "<TODO>" //TODO use subnet_ids variable (see variables.tf)
+  tags = "<TODO>"//TODO: populate missing values
 }
 
 resource "aws_alb_target_group" "alb_tg" {
-  name = local.tg_name
-  tags = var.tags
+  name = "<TODO>"//TODO: use local target group name
+  tags = "<TODO>"//TODO: populate missing values
   port = "80"
   protocol = "HTTP"
-  vpc_id = var.vpc_id
+  vpc_id = "<TODO>"//TODO: populate missing values
 
-  health_check {
-    path = "/"
-    port = "80"
-    matcher = "200"
-  }
+  //TODO: add a health check configuration with parameters: path = "/", port = 80, matcher = "200"
+
 }
 
 resource "aws_alb_listener" "alb_listener" {
-  load_balancer_arn = aws_alb.alb.arn
+  load_balancer_arn = "<TODO>"//TODO: populate missing values
   port = "80"
   protocol = "HTTP"
 
   default_action {
-    target_group_arn = aws_alb_target_group.alb_tg.arn
+    target_group_arn = "<TODO>"//TODO: populate missing values
     type = "forward"
   }
 }

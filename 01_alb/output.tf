@@ -1,3 +1,3 @@
 output "alb_tg" {
-  value = aws_alb_target_group.alb_tg.id
+  //TODO: output the alb target group ID created in the main.tf
 }

@@ -12,7 +12,7 @@ subnet_ids = [
   "subnet-0a4c2ad0f5420bf4c",
   "subnet-019dae4e25b36f8a2"]
 
-user_id = "ilya"
+user_id =  //TODO: PUT YOUR NAME HERE
 
 ami_id = "ami-0721c9af7b9b75114" //Amazon Linux 2 AMI
 
@@ -20,7 +20,7 @@ instance_type = "t2.micro"
 
 instance_profile = "terraform-lab-instance-profile"
 
-key_pair_name = "terraform-lab-ilya" //put your KeyPair name here
+key_pair_name = //TODO: CREATE YOUR KEYPAIR IN AWS CONSOLE (EC2->KEY PAIRS) AND PUT ITS NAME HERE
 
 tags = {
   event_name = "terraform-lab",

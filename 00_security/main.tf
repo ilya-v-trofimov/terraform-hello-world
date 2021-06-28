@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     bucket = "terraform-resmed-lab-state"
-    key = "ilya/security/lab.tfstate"
+    key = "<user_id>/security/lab.tfstate" //TODO
     region = "us-west-2"
   }
   required_providers {
@@ -21,7 +21,7 @@ locals {
 }
 
 resource "aws_security_group" "this_security_group" {
-  name = local.security_group_name
+  name = "<TODO>"//TODO: put local security group name here. Access local variable using 'local.var_name'
   vpc_id = var.vpc_id
 
   revoke_rules_on_delete = true
@@ -29,7 +29,7 @@ resource "aws_security_group" "this_security_group" {
 }
 
 resource "aws_security_group_rule" "ingress" {
-  security_group_id = aws_security_group.this_security_group.id
+  security_group_id = "<TODO>"//TODO: populate missing values
   type = "ingress"
 
   cidr_blocks = [
@@ -41,7 +41,7 @@ resource "aws_security_group_rule" "ingress" {
 }
 
 resource "aws_security_group_rule" "egress" {
-  security_group_id = aws_security_group.this_security_group.id
+  security_group_id = "<TODO>"//TODO: populate missing values
   type = "egress"
 
   cidr_blocks = [
