@@ -5,7 +5,7 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket = "terraform-lab-state"
+    bucket = "terraform-resmed-lab-state"
     key = "ilya/security/lab.tfstate"
     region = "us-west-2"
   }
