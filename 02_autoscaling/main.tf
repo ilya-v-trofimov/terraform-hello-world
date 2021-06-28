@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     bucket = "terraform-resmed-lab-state"
-    key = "ilya/autoscaling/lab.tfstate"
+    key = "<user_id>/autoscaling/lab.tfstate" //TODO
     region = "us-west-2"
   }
   required_providers {
@@ -33,14 +33,7 @@ data "terraform_remote_state" "security" {
 }
 
 data "terraform_remote_state" "alb" {
-  backend = "s3"
-  workspace = terraform.workspace
-
-  config = {
-    bucket = var.terraform_state_bucket
-    key = "${var.user_id}/alb/lab.tfstate"
-    region = var.region
-  }
+  //TODO: configure a remote state to read '01_alb' outputs. (similar to 'security' above)
 }
 
 resource "aws_launch_configuration" "launch_config" {
@@ -48,11 +41,11 @@ resource "aws_launch_configuration" "launch_config" {
   image_id = "<TODO>"//TODO: populate missing values
   instance_type = "<TODO>"//TODO: populate missing values
   iam_instance_profile = "<TODO>"//TODO: populate missing values
-  key_name = "<TODO>"//TODO: populate missing values
+  key_name = "<TODO>"//TODO: populate missing values (key pair)
   security_groups = [
     "<TODO>"//TODO: populate missing values (use one of the data sources)
   ]
-  user_data = "<TODO>"//TODO: populate missing values (use templatefile function)
+  user_data = "<TODO>"//TODO: populate missing values (use templatefile function and templates/user_data.template file)
   associate_public_ip_address = true
 }
 
