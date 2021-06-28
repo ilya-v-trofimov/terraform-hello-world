@@ -10,6 +10,7 @@ For each of the layers use following commands:
 - `terraform apply "tfplan.out"` - applies previously created plan
 - `terraform destroy -var-file=../vars/dev.tfvars` - destroys managed stack
 ## Task:
+This terraform code is to deploy the schema outlined below <br>![img](img/deployment-schema.png)
 * Go through the code and fix all TODOs.
 * Better fix and apply layers one by one, rather fixing them all in first place
 * Once all layers are deployed, check that you can access the ALB endpoint and see the web page
